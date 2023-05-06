@@ -89,8 +89,8 @@ public class Main {
                 throw new SocketTimeoutException();
             }
 
-            //logger.info("selecting ...");
-            if (selector.selectNow() <= 0) continue; // non-blocking
+            logger.info("selecting ...");
+            if (selector.select(100) <= 0) continue; // non-blocking
             logger.info("processing selection ...");
             
             // we got one or more event(s)
